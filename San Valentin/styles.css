@@ -1,0 +1,191 @@
+body {
+    font-family: 'Georgia', serif;
+    background-color: #1a1a1a;
+    color: #ff6b6b;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.geometric-flower {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    animation: bloom 3s ease-in-out forwards;
+}
+
+.petal {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff6b6b;
+    border-radius: 50% 0;
+    transform-origin: bottom right;
+}
+
+@keyframes bloom {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 0.8;
+    }
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.6);
+    z-index: 1;
+    max-width: 600px;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.heart-bg {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center,
+            rgba(255, 107, 107, 0.1) 0%,
+            rgba(255, 107, 107, 0) 70%);
+    animation: pulse 4s infinite;
+}
+
+h1 {
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    color: #ff4c4c;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: pulse 2s infinite;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#yesButton {
+    background: linear-gradient(45deg, #ff6b6b, #ff4c4c);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}
+
+#yesButton:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+}
+
+#noButton {
+    background: #f0f0f0;
+    color: #666;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    display: none;
+    background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid #ff6b6b;
+    margin-top: 30px;
+    animation: slideIn 1s ease-in-out;
+}
+
+.card.visible {
+    display: block;
+}
+
+.card-content {
+    font-size: 1.3em;
+    line-height: 1.8;
+    color: #333;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.floating-hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 1.5em;
+    animation: float 6s infinite;
+    color: #ff6b6b;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+    }
+}
